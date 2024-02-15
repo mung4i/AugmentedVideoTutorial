@@ -187,9 +187,14 @@ open class ArVideoFragment : ArFragment() {
                     descriptor.length
                 )
 
-                val videoWidth = metadataRetriever.extractMetadata(METADATA_KEY_VIDEO_WIDTH).toFloatOrNull() ?: 0f
-                val videoHeight = metadataRetriever.extractMetadata(METADATA_KEY_VIDEO_HEIGHT).toFloatOrNull() ?: 0f
-                val videoRotation = metadataRetriever.extractMetadata(METADATA_KEY_VIDEO_ROTATION).toFloatOrNull() ?: 0f
+                val videoWidth = metadataRetriever.extractMetadata(METADATA_KEY_VIDEO_WIDTH)
+                    ?.toFloatOrNull() ?: 0f
+                val videoHeight = metadataRetriever.extractMetadata(METADATA_KEY_VIDEO_HEIGHT)
+                    ?.toFloatOrNull()
+                    ?: 0f
+                val videoRotation = metadataRetriever.extractMetadata(METADATA_KEY_VIDEO_ROTATION)
+                    ?.toFloatOrNull()
+                    ?: 0f
 
                 // Account for video rotation, so that scale logic math works properly
                 val imageSize = RectF(0f, 0f, augmentedImage.extentX, augmentedImage.extentZ)
